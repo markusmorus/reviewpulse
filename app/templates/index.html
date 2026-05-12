@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Home - ReviewPulse{% endblock %}
+{% block content %}
+<h1>Benvenuto in ReviewPulse</h1>
+<p>Monitora le recensioni Google dei tuoi locali e ricevi notifiche istantanee.</p>
+{% if not current_user.is_authenticated %}
+    <a href="{{ url_for('main.register') }}" class="btn btn-primary">Inizia ora</a>
+    <a href="{{ url_for('main.login') }}" class="btn btn-outline-primary">Accedi</a>
+{% else %}
+    <a href="{{ url_for('main.dashboard') }}" class="btn btn-success">Vai alla Dashboard</a>
+{% endif %}
+{% endblock %}
